@@ -10,5 +10,9 @@ class Category extends Model
    protected $fillable = ['category_type'];
    public $timestamps = false;
 
+   public function product()
+   {
+      return $this->hasMany(Product::class);
+   }
 }
 
