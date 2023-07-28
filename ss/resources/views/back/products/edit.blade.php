@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h1>Edit product: <b><i>{{ $product->product_title }}</i></b></h1>
+                        <h1>Edit product: <b><i>{{ $product->product_title }} ({{ $product->category->category_type }})</i></b></h1>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('products-update', $product) }}" method="post">
@@ -39,6 +39,20 @@
                                 <label class="form-label">Price</label>
                                 <input type="text" class="form-control" name="product_price"
                                     value="{{ old('product_price') }}">
+                            </div>
+                            <div class="col-4">
+                                <label class="form-label">Product Category</label>
+                                <select class="form-select" name="category_id">
+                                    <option value="0">Categories list</option>
+                                    @foreach ($cats as $cat)
+                                        @if ($cat->id === old('category_id', $product->category_id))
+                                            <option value="{{ $cat->id }}" selected>{{ $cat->category_type }}</option>
+                                        @else
+                                            <option value="{{ $cat->id }}">{{ $cat->category_type }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                <div class="form-text">Please select product category here</div>
                             </div>
                             <button type="submit" class="btn btn-outline-primary">Add to list</button>
                             @method('put')
