@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        foreach (range(1, 5) as $_) {
+        foreach (range(1, 10) as $_) {
             $categoryId = rand(1, count($categoryTypes));
             $id = DB::table('products')->insertGetId([
                 'product_title' => $faker->catchPhrase,

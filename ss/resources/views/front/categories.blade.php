@@ -6,9 +6,12 @@
         </div>
         <div class="card-body">
             <ul class="list-group">
+                <div>
+                    <a href="{{route('front-index')}}">All products</a>
+                </div>
                 @forelse($categories->get() as $category)
                     <div>
-                        <a href="">{{ $category->category_type }}</a>
+                        <a href="{{ route('front-single-category', $category) }}">{{ $category->category_type }}</a>
                     </div>
                 @empty
                     <li class="list-group-item">

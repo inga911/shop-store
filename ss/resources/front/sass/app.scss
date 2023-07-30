@@ -3,3 +3,10 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.nav-link {
+    svg {
+        width:40px;
+        height:40px;
+    }
+}

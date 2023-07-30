@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController as CART;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController as C;
 use App\Http\Controllers\ProductController as P;
@@ -13,7 +14,7 @@ Route::get('/', function () {
 
 Route::name('front-')->group(function () {
     Route::get('/', [F::class, 'index'])->name('index');
-    Route::get('/category/{cat}', [F::class, 'catColors'])->name('cat-colors');
+    Route::get('/category/{category}', [F::class, 'singleCategory'])->name('single-category');
     Route::get('/product/{product}', [F::class, 'showProduct'])->name('show-product');
     Route::get('/my-orders', [F::class, 'orders'])->name('orders');
     Route::get('/download/{order}', [F::class, 'download'])->name('download');
@@ -24,6 +25,14 @@ Route::name('front-')->group(function () {
     Route::post('/add-new-tag/{product}', [F::class, 'addNewTag'])->name('add-new-tag');
 });
 
+Route::prefix('cart-')->name('cart-')->group(function () {
+    Route::put('/add', [CART::class, 'add'])->name('add');
+    Route::put('/rem', [CART::class, 'rem'])->name('rem');
+    Route::put('/update', [CART::class, 'update'])->name('update');
+    Route::post('/buy', [CART::class, 'buy'])->name('buy');
+    Route::get('/', [CART::class, 'showCart'])->name('show');
+    Route::get('/mini-cart', [CART::class, 'miniCart'])->name('mini-cart');
+});
 
 Route::prefix('cats')->name('cats-')->group(function () {
     Route::get('/', [C::class, 'index'])->name('index')->middleware('role:admin');

@@ -7,12 +7,12 @@
             <div class="col-9">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h1>Products List</h1>
+                        <h1>{{$category->category_type}} products</h1>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
                             @forelse($products as $product)
-                                <div class="product-info" style="border-bottom: 0.5px solid lightgrey">
+                                <div style="border-bottom: 0.5px solid lightgrey">
                                     <a href="{{route('front-show-product', $product)}}"><p><b>Title:</b> {{ $product->product_title }}</p></a>
                                     {{-- <p><b>Description:</b> {{ $product->product_description }}</p>
                                     <p><b>How to use:</b> {{ $product->product_how_to_use }}</p>
@@ -31,7 +31,7 @@
                                 </div>
                             @empty
                                 <li class="list-group-item">
-                                    <div>No products</div>
+                                    <div>No categories</div>
                                 </li>
                             @endforelse
                         </ul>

@@ -7,7 +7,7 @@
             <div class="col-9">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h1>Products List</h1>
+                        <h1>Cart</h1>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
@@ -31,7 +31,7 @@
                                 </div>
                             @empty
                                 <li class="list-group-item">
-                                    <div>No products</div>
+                                    <div>Cart is empty</div>
                                 </li>
                             @endforelse
                         </ul>
