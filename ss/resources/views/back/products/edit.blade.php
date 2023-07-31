@@ -13,32 +13,32 @@
                             <div class="mb-3">
                                 <label class="form-label">Product title</label>
                                 <input type="text" class="form-control" name="product_title"
-                                    value="{{ old('product_title') }}">
+                                    value="{{ old('product_title', $product->product_title) }}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Product description</label>
                                 <input type="text" class="form-control" name="product_description"
-                                    value="{{ old('product_description') }}">
+                                value="{{ old('product_description', $product->product_description) }}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">How to use product</label>
                                 <input type="text" class="form-control" name="product_how_to_use"
-                                    value="{{ old('product_how_to_use') }}">
+                                value="{{ old('product_how_to_use', $product->product_how_to_use) }}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Warnings</label>
                                 <input type="text" class="form-control" name="product_warnings"
-                                    value="{{ old('product_warnings') }}">
+                                value="{{ old('product_warnings', $product->product_warnings) }}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Ingredients</label>
                                 <input type="text" class="form-control" name="product_ingredients"
-                                    value="{{ old('product_ingredients') }}">
+                                value="{{ old('product_ingredients', $product->product_ingredients) }}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Price</label>
                                 <input type="text" class="form-control" name="product_price"
-                                    value="{{ old('product_price') }}">
+                                value="{{ old('product_price', $product->product_price) }}">
                             </div>
                             <div class="col-4">
                                 <label class="form-label">Product Category</label>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Entities\Cart;
+use App\Models\Order;
 
 class CartController extends Controller
 {
@@ -29,7 +30,7 @@ class CartController extends Controller
     }
 
 
-    public function rem(Request $request)
+    public function remove(Request $request)
     {
 
         $id = (int) $request->id;
@@ -87,23 +88,25 @@ class CartController extends Controller
         $total = 0;
 
         $Cart->products()->each(function($p, $key) use (&$total, &$products) {
-
-            
-
-            $products[$key]['title'] = $p->title;
+            $products[$key]['title'] = $p->product_title;
             $products[$key]['count'] = $p->count;
-            $products[$key]['price'] = $p->price;
-            $products[$key]['total'] = $p->count * $p->price;
+            $products[$key]['price'] = $p->product_price;
+            $products[$key]['total'] = $p->count * $p->product_price;
             $total += $products[$key]['total'];
-
-     
         });
 
+       
+
+        $userId = $request->user()->id;
+
+        Order::create([
+            'products' => $products,
+            'user_id' => $userId,
+            'price' => $total,
+        ]);
 
         $request->session()->put('cart', []);
 
-
         return redirect()->route('front-index');
-
     }
 }

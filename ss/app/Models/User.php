@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use SebastianBergmann\CodeUnit\FunctionUnit;
 
 class User extends Authenticatable
 {
@@ -32,4 +33,9 @@ class User extends Authenticatable
         1 => 'admin',
         10 => 'client'
     ];
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
