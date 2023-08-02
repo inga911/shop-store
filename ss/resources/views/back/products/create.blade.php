@@ -9,7 +9,7 @@
                         <h1>Add new product</h1>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('products-store') }}" method="post">
+                        <form action="{{ route('products-store') }}" method="post" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label class="form-label">Product title</label>
                                 <input type="text" class="form-control" name="product_title"
@@ -50,6 +50,22 @@
                                 </select>
                                 <div class="form-text">Please select product category here</div>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Upload Main Product photo</label>
+                                <input type="file" class="form-control" name="photo">
+                            </div>
+
+
+                            <div class="mb-3" data-gallery="0">
+                                <label class="form-label">Gallery photo <span class="rem">X</span></label>
+                                <input type="file" class="form-control">
+                            </div>
+
+                            <div class="gallery-inputs">
+
+                            </div>
+
+                            <button type="button" class="btn btn-secondary --add--gallery">add gallery photo</button>
 
                             <button type="submit" class="btn btn-outline-primary">Add to list</button>
                             @csrf

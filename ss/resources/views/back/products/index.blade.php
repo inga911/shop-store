@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h1>Categories List</h1>
+                        <h1>Products List</h1>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
@@ -21,7 +21,18 @@
                                             <p><b>Ingredients:</b> {{ $product->product_ingredients }}</p>
                                             <p><b>Price:</b> {{ $product->product_price }}</p>
                                             <p><b>Category Type:</b> {{ $product->category->category_type }}
-                                                ({{ $product->category_id }})</p>
+                                                ({{ $product->category_id }})
+                                            </p>
+                                            <div>
+                                                @if ($product->photo)
+                                                    <img src="{{ asset('/products-img') .'/t_'. $product->photo }}"
+                                                        alt="product photo"
+                                                        style="width: 200px; heigh:200px; object-fit:contain;">
+                                                @else
+                                                    <img src="{{ asset('/products-img') . '/no-photo.png' }}"
+                                                        style="width: 200px; heigh:200px; object-fit:contain;">
+                                                @endif
+                                            </div>
                                         </div>
                                         <div class="buttons">
                                             <a href="{{ route('products-edit', $product) }}"

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('product_price', 6, 2)->unsigned();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->string('photo', 200)->nullable();
         });
     }
 
