@@ -14,6 +14,7 @@
                             @forelse($products as $product)
                                 <div class="product-info" style="border-bottom: 0.5px solid lightgrey">
                                     <a href="{{route('front-show-product', $product)}}"><p><b>Title:</b> {{ $product->product_title }}</p></a>
+                                    @include('front.vote')
                                     {{-- <p><b>Description:</b> {{ $product->product_description }}</p>
                                     <p><b>How to use:</b> {{ $product->product_how_to_use }}</p>
                                     <p><b>Warnings:</b> {{ $product->product_warnings }}</p>

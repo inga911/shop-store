@@ -10,8 +10,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class Product extends Model
 {
-    protected $fillable = ['product_title', 'product_description', 'product_how_to_use', 'product_warnings', 'product_ingredients', 'product_price', 'category_id', 'category_type', 'photo'];
+    protected $fillable = ['product_title', 'product_description', 'product_how_to_use', 'product_warnings', 'product_ingredients', 'product_price', 'category_id', 'category_type', 'photo', 'rate', 'rates'];
     public $timestamps = false;
+    protected $casts = [
+        'rates' => 'array',
+    ];
    
 
     public function category()

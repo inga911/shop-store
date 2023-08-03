@@ -6,3 +6,67 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+//ALERT OK
+.row-ok {
+    position: relative;
+    width: 55%;
+    margin-left: -25%;
+    background-color: rgb(139, 227, 139);
+
+
+    .alert-ok {
+        position: absolute;
+        top: -100px;
+        width: 60%;
+        opacity: 0;
+        background-color: #b2faa2bd;
+        color: #1c721d;
+        border: 1px solid #d2f5c6;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: top 0.5s ease, opacity 0.5s ease;
+        z-index: 9999;
+
+        &.show {
+            top: 0;
+            opacity: 1;
+        }
+    }
+}
+
+
+//ALERT INFO
+.row-info {
+    background-color: rgb(139, 192, 227);
+    position: relative;
+    width: 55%;
+    margin-left: -25%;
+    top: -50px;
+
+    .alert-info {
+        position: absolute;
+        top: -100px;
+        width: 60%;
+        opacity: 0;
+        background-color: #87c2f9bd;
+        color: #1c3072;
+        border: 1px solid #c6def5;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: top 0.5s ease, opacity 0.5s ease;
+        z-index: 9999;
+
+        &.show {
+            top: 0;
+            opacity: 1;
+        }
+    }
+}
+
+//GALLERY
+[data-gallery="0"] {
+    display: none;
+}

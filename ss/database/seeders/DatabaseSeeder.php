@@ -27,11 +27,18 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123'),
         ]);
 
+        DB::table('users')->insert([
+            'name' => 'Client2',
+            'email' => 'client2@gmail.com',
+            'role' => 10,
+            'password' => Hash::make('123'),
+        ]);
+
         $categoryTypes = [
-            'Cream',
-            'Powder',
-            'Tablets',
-            'Drink'
+            'CATEGORY 1',
+            'CATEGORY 2',
+            'CATEGORY 3',
+            'CATEGORY 4'
         ];
 
         foreach ($categoryTypes as $type) {
@@ -40,10 +47,26 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        $productTitles = [
+            'PRODUCT 1',
+            'PRODUCT 2',
+            'PRODUCT 3',
+            'PRODUCT 4',
+            'PRODUCT 5',
+            'PRODUCT 6',
+            'PRODUCT 7',
+            'PRODUCT 8',
+            'PRODUCT 9',
+            'PRODUCT 10',
+        ];
+
         foreach (range(1, 10) as $_) {
             $categoryId = rand(1, count($categoryTypes));
+            $randomTitleIndex = array_rand($productTitles);
+            $title = $productTitles[$randomTitleIndex];
+            
             $id = DB::table('products')->insertGetId([
-                'product_title' => $faker->catchPhrase,
+                'product_title' => $title,
                 'product_description' => $faker->text($maxNbChars = 50),
                 'product_how_to_use' => $faker->text($maxNbChars = 30),
                 'product_warnings' => $faker->text($maxNbChars = 50),

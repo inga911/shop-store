@@ -51,6 +51,7 @@ Route::prefix('products')->name('products-')->group(function () {
     Route::get('/edit/{product}', [P::class, 'edit'])->name('edit')->middleware('role:admin');
     Route::put('/edit/{product}', [P::class, 'update'])->name('update')->middleware('role:admin');
     Route::delete('/delete/{product}', [P::class, 'destroy'])->name('delete')->middleware('role:admin');
+    Route::delete('/delete-photo/{photo}', [P::class, 'destroyPhoto'])->name('delete-photo')->middleware('role:admin');
 });
 
 Route::prefix('orders')->name('orders-')->group(function () {

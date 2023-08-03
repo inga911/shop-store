@@ -31,7 +31,7 @@
                                 </div>
                             @empty
                                 <li class="list-group-item">
-                                    <div>No categories</div>
+                                    <div>No products</div>
                                 </li>
                             @endforelse
                         </ul>
