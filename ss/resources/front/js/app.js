@@ -51,3 +51,5 @@ document.querySelectorAll('.stars input')
                 .forEach(l => l.classList.remove('half'));
         });
     });
+
+    

@@ -15,7 +15,7 @@
             @endif
         </div>
         @if($product->showVoteButton)
-        <button type="submit" class="btn btn-info">vote</button>
+        <button type="submit" class="btn-vote">Vote</button>
         @endif
         @csrf
         @method('put')

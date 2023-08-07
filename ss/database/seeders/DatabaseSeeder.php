@@ -67,10 +67,10 @@ class DatabaseSeeder extends Seeder
             
             $id = DB::table('products')->insertGetId([
                 'product_title' => $title,
-                'product_description' => $faker->text($maxNbChars = 50),
-                'product_how_to_use' => $faker->text($maxNbChars = 30),
-                'product_warnings' => $faker->text($maxNbChars = 50),
-                'product_ingredients' => $faker->text($maxNbChars = 60),
+                'product_description' => $faker->text($maxNbChars = 500),
+                'product_how_to_use' => $faker->text($maxNbChars = 300),
+                'product_warnings' => $faker->text($maxNbChars = 500),
+                'product_ingredients' => $faker->text($maxNbChars = 600),
                 'product_price' => rand(100, 5000) / 100,
                 'category_id' => $categoryId
             ]);

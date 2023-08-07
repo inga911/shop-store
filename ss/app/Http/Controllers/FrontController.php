@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
@@ -60,6 +60,7 @@ class FrontController extends Controller
 
     public function download(Order $order, Product $product)
     {
+        
         $pdf = Pdf::loadView('front.pdf',[
             'order' => $order,
             'product' => $product,
